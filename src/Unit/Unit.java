@@ -1,7 +1,7 @@
 package Unit;
 
 
-import board.Board_Content;
+import Board.Board_Content;
 
 public class Unit{
 

@@ -1,4 +1,4 @@
-package board;
+package Board;
 
 import java.util.Random;
 
@@ -14,8 +14,6 @@ public class LocateSources {
             x = random.nextInt(1000);
             y = random.nextInt(1000);
             board_content[x][y].type = typeofsupplies; 
-            System.out.println(x);
-            System.out.println(y);
         }
         return;
     }

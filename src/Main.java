@@ -1,4 +1,4 @@
-package board;
+package Board;
 import Unit.Unit;
 import Unit.Unit_Details;
 
