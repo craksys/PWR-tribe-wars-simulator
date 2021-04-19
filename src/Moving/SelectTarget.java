@@ -4,6 +4,7 @@ import Board.Board_Content;
 import Unit.Unit_Details;
 
 public class SelectTarget {
+    FindNearTarget findNearTarget = new FindNearTarget();
 
     public void selecttarger(Unit_Details[] unit_details, int i) {
         if (unit_details[i].targetactive == true) {
@@ -23,13 +24,11 @@ public class SelectTarget {
         }
 
         if(unit_details[i].targetactive == false){
-            if(unit_details[i].hunger < 30){}
-            else if(unit_details[i].hunger < 20){}
-            else if(unit_details[i].wood < 20){}
-            else if(unit_details[i].stone < 20){}
-            else if(unit_details[i].iron < 20){}
-            else if(unit_details[i].gold < 20){}
-
+            if(unit_details[i].hunger < 30){unit_details[i].targettype = 1;}
+            else if(unit_details[i].wood < 30){unit_details[i].targettype = 2;}
+            else if(unit_details[i].stone < 30){unit_details[i].targettype = 3;}
+            else if(unit_details[i].iron < 30){unit_details[i].targettype = 4;}
+            findNearTarget.findtargetandwritetotab(unit_details, i);
         }
 
     }
