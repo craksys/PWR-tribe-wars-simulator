@@ -1,6 +1,8 @@
 package Board;
 
 
+import java.util.ArrayList;
+
 public class Board {
 
     LocateSources locatesources = new LocateSources();
@@ -15,12 +17,10 @@ public class Board {
         }
         return;
     }
-    public void placesupplies(Board_Content[][] board_content) {
-        locatesources.randsupplies(board_content, 20000,1); //jedzenie i woda
-        locatesources.randsupplies(board_content, 10000,2); //drewno
-        locatesources.randsupplies(board_content, 10000,3); //kamien
-        locatesources.randsupplies(board_content, 5000,4); //żelazo
-        locatesources.randsupplies(board_content, 1000,5); //złoto
+
+    public void placesupplies(Board_Content[][] board_content,ArrayList<Integer> x_array, ArrayList<Integer> y_array,int amountofsupplies,int typeofsupplies)
+    {
+        locatesources.randsupplies(board_content, amountofsupplies,typeofsupplies,x_array,y_array); //jedzenie i woda
         return;
     }
 }

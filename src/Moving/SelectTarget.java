@@ -24,6 +24,12 @@ public class SelectTarget {
 
         if(unit_details[i].targetactive == false){
             if(unit_details[i].hunger < 30){}
+            else if(unit_details[i].hunger < 20){}
+            else if(unit_details[i].wood < 20){}
+            else if(unit_details[i].stone < 20){}
+            else if(unit_details[i].iron < 20){}
+            else if(unit_details[i].gold < 20){}
+
         }
 
     }
@@ -38,6 +44,7 @@ public class SelectTarget {
             case 3 -> unit_details[i].stone = unit_details[i].stone + 40;
             case 4 -> unit_details[i].iron = unit_details[i].iron + 40;
             case 5 -> unit_details[i].gold = unit_details[i].gold + 5;
+            default -> System.out.println("Błąd w pliku SelectTarget");
         }
         unit_details[i].targettype =0;
     }
