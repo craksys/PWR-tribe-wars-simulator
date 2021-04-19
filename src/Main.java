@@ -13,7 +13,6 @@ public class Main
         board.placesupplies(board_content);
         Unit_Details[] unit_details = new Unit_Details[5000];
         unit.generateunits(unit_details, board_content);
-
         }
     }
 

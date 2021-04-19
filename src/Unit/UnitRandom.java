@@ -17,6 +17,9 @@ public class UnitRandom {
         unit_details[i].wood = random.nextInt(51) + 30; // procentowo ilosc drewna
         unit_details[i].gold = random.nextInt(51) + 1; // ilość złotych monet
         unit_details[i].quantity = random.nextInt(9100) + 1000; // liczebność grupy
+        unit_details[i].active = true;
+        unit_details[i].id = i;
+
 
         if(unit_details[i].quantity>=10000)
         {
