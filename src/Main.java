@@ -1,9 +1,13 @@
 package Board;
+import Graph.MyFrame;
+import Graph.MyPanel;
+import Graph.Test;
 import Moving.Move;
 import Moving.SelectTarget;
 import Unit.Unit;
 import Unit.Unit_Details;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Main
@@ -26,6 +30,8 @@ public class Main
         Unit_Details[] unit_details = new Unit_Details[5000];
         unit.generateunits(unit_details, board_content);
         move.targets(board_content,unit_details);
+        MyFrame frame = new MyFrame(board_content);
+        System.out.println("koniec");
 
         }
     }
