@@ -11,9 +11,11 @@ public class RandMove {
     private int y_move;
 
     protected void randmove(Board_Content[][] board_content, Unit_Details[] unit_details, int i){
-        x_move = random.nextInt(11)-5;
-        y_move = random.nextInt(11)-5;
-
+        do {
+            x_move = random.nextInt(3) - 1;
+            y_move = random.nextInt(3) - 1;
+        }
+        while((unit_details[i].x_position + x_move < 0 || unit_details[i].x_position + x_move > 999) || (unit_details[i].y_position + y_move < 0 || unit_details[i].y_position + y_move > 999));
         unit_details[i].x_position = unit_details[i].x_position + x_move;
         unit_details[i].y_position = unit_details[i].y_position + y_move;
 

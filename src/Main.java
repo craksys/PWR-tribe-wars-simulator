@@ -1,5 +1,6 @@
 import Board.*;
 import Graph.MyFrame;
+import Move.Move;
 import Targeting.Target;
 import Unit.Unit;
 import Unit.Unit_Details;
@@ -24,6 +25,9 @@ public class Main
         Unit_Details[] unit_details = new Unit_Details[5000];
         unit.generateunits(unit_details, board_content);
         target.targets(board_content,unit_details);
+
+        Move move = new Move();
+
         MyFrame frame = new MyFrame(board_content);
         System.out.println("koniec");
 
