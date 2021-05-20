@@ -18,45 +18,38 @@ public class Diplomacy {
                 }
             }
             if (unit_details[i].hunger < 20 && unit_details[i].wood < 20 && unit_details[i].stone < 20 && unit_details[i].iron < 20) {//bezwarunkowa wojna jezeli jednosta ma malo zasobow
-                war(board_content, unit_details, i, j);
+                war(unit_details, i, j);
                 System.out.println("No to wojna :)");
             }
             if (unit_details[i].type.equals(unit_details[j].type)) { //jezeli 2 jednostki tej samej rasy 25% na polaczenie sie, inaczej wojna
                 rannumber = random.nextInt(4);
                 if (rannumber == 3) {
-                    join(board_content, unit_details, i, j); //polaczenie
+                    join(unit_details, i, j); //polaczenie
                 }
                 else { //jezeli rozna rasa na polu, zawsze wojna
-                    war(board_content, unit_details, i, j);
+                    war(unit_details, i, j);
                 }
 
             } else {
-                war(board_content, unit_details, i, j); //wojna
+                war(unit_details, i, j); //wojna
                 }
             }
 
         }
 
 
-
-    private void war(Board_Content[][] board_content, Unit_Details[] unit_details, int i, int j){
+    private void war(Unit_Details[] unit_details, int i, int j){
         if(unit_details[i].quantity > unit_details[j].quantity){
             unit_details[i].quantity -= unit_details[j].quantity;
             unit_details[j].quantity = 0;
             unit_details[j].active = false;
-            unit_details[i].wood =80;
-            unit_details[i].hunger =80;
-            unit_details[i].stone=80;
-            unit_details[i].iron =80;
-            }
+            switchResources(unit_details, i, j, unit_details[i]);
+        }
         else if(unit_details[i].quantity < unit_details[j].quantity){
             unit_details[j].quantity -= unit_details[i].quantity;
             unit_details[i].quantity = 0;
             unit_details[i].active = false;
-            unit_details[j].wood =80;
-            unit_details[j].hunger =80;
-            unit_details[j].stone=80;
-            unit_details[j].iron =80;
+            switchResources(unit_details, j, i, unit_details[i]);
         }
         else{
             unit_details[j].quantity = 0;
@@ -66,14 +59,21 @@ public class Diplomacy {
             }
     }
 
-    private void join(Board_Content[][] board_content, Unit_Details[] unit_details, int i, int j){
+    private void join(Unit_Details[] unit_details, int i, int j){
         unit_details[i].quantity += unit_details[j].quantity;
-        unit_details[i].wood = 70;
-        unit_details[i].hunger = 70;
-        unit_details[i].stone= 70;
-        unit_details[i].iron = 70;
         unit_details[j].quantity = 0;
         unit_details[j].active = false;
+        switchResources(unit_details ,i ,j ,unit_details[i]);
          }
 
+    private void switchResources(Unit_Details[] unit_details, int i, int j, Unit_Details unit_detail) {
+        unit_detail.wood += unit_details[j].wood;
+        if(unit_details[i].wood > 100) unit_details[i].wood = 100;
+        unit_details[i].hunger += unit_details[j].hunger;
+        if(unit_details[i].hunger > 100) unit_details[i].hunger = 100;
+        unit_details[i].stone += unit_details[j].stone;
+        if(unit_details[i].stone > 100) unit_details[i].stone = 100;
+        unit_details[i].iron += unit_details[j].iron;
+        if(unit_details[i].iron > 100) unit_details[i].iron = 100;
+    }
 }
