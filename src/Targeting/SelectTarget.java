@@ -1,6 +1,5 @@
-package Moving;
+package Targeting;
 
-import Board.Board_Content;
 import Unit.Unit_Details;
 
 public class SelectTarget {

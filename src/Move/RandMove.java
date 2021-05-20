@@ -1,4 +1,4 @@
-package Moving;
+package Move;
 
 import Board.Board_Content;
 import Unit.Unit_Details;

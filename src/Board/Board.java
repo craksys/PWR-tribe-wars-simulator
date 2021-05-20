@@ -4,6 +4,13 @@ package Board;
 import java.util.ArrayList;
 
 public class Board {
+    Board_Content[][] board_content;
+
+    public Board(Board_Content[][] board_content){
+        this.board_content = board_content;
+    }
+
+
 
     LocateSources locatesources = new LocateSources();
 

@@ -1,24 +1,18 @@
-package Board;
+import Board.*;
 import Graph.MyFrame;
-import Graph.MyPanel;
-import Graph.Test;
-import Moving.Move;
-import Moving.SelectTarget;
+import Targeting.Target;
 import Unit.Unit;
 import Unit.Unit_Details;
-
-import java.awt.*;
-import java.util.ArrayList;
 
 public class Main
 {
     public static void main (String[] args)
     {
-        Board board = new Board();
         Unit unit = new Unit();
-        Move move = new Move();
+        Target target = new Target();
 
         Board_Content[][] board_content = new Board_Content[1000][1000];
+        Board board = new Board(board_content);
         board.createmap(board_content);
 
         board.placesupplies(board_content, ArrayOfPlaces.x_food, ArrayOfPlaces.y_food, 20000,1); //żywność
@@ -29,7 +23,7 @@ public class Main
 
         Unit_Details[] unit_details = new Unit_Details[5000];
         unit.generateunits(unit_details, board_content);
-        move.targets(board_content,unit_details);
+        target.targets(board_content,unit_details);
         MyFrame frame = new MyFrame(board_content);
         System.out.println("koniec");
 

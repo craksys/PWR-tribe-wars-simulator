@@ -1,12 +1,11 @@
-package Moving;
+package Targeting;
 
-import Board.ArrayOfPlaces;
 import Board.Board_Content;
 import Unit.Unit_Details;
 
 import java.util.Random;
 
-public class Move {
+public class Target {
     Random random = new Random();
     SelectTarget selectTarget = new SelectTarget();
 
