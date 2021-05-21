@@ -24,7 +24,7 @@ public class UnitRandom {
         if(unit_details[i].quantity>=10000)
         {
             unit_details[i].stationary = true;
-        }
+        }else {unit_details[i].stationary = false;}
         do{
             unit_details[i].x_position = random.nextInt(1000);
             unit_details[i].y_position = random.nextInt(1000);

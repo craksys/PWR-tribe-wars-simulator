@@ -14,7 +14,7 @@ public class Unit_Details {
     public int y_position; // pozycja y
     public int x_scouts_position; // pozycja x grupy zwiadowczej jesli grupa jest stacjonarna
     public int y_scouts_position; // pozycja y grupy zwiadowczej jesli grupa jest stacjonarna
-    public boolean active;
+    public boolean active = true;
     public boolean targetactive;
     public int x_target;
     public int y_target;

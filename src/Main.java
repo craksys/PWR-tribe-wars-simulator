@@ -5,10 +5,12 @@ import Targeting.Target;
 import Unit.Unit;
 import Unit.Unit_Details;
 
+import java.awt.*;
+import java.util.concurrent.TimeUnit;
+
 public class Main
 {
-    public static void main (String[] args)
-    {
+    public static void main (String[] args) throws InterruptedException {
         Unit unit = new Unit();
         Target target = new Target();
 
@@ -30,7 +32,11 @@ public class Main
 
         MyFrame frame = new MyFrame(board_content);
         System.out.println("koniec");
-
+        TimeUnit.SECONDS.sleep(4);
+        for(int i =0; i<100;i++){move.unitmove(board_content,unit_details);} //i liczba erund do symulowania
+        move.unitmove(board_content,unit_details);
+        TimeUnit.SECONDS.sleep(4);
+        frame.update(frame.getGraphics());
         }
     }
 
