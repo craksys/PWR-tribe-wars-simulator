@@ -7,11 +7,11 @@ public class Move {
     RandMove randMove = new RandMove();
     TargetedMoveUnit targetedMoveUnit = new TargetedMoveUnit();
     Diplomacy diplomacy = new Diplomacy();
-    private int speed =5;
+    private int speed =20;
 
 
         public void unitmove(Board_Content[][] board_content, Unit_Details[] unit_details){
-        for(int i =0; i< board_content.length; i++)
+        for(int i =0; i< unit_details.length; i++)
         {
             if(unit_details[i].active == true && unit_details[i].stationary == false){
                 if(unit_details[i].targetactive == false){
