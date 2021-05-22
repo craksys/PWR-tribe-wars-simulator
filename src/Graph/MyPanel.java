@@ -25,30 +25,30 @@ public class MyPanel extends JPanel {
         this.board_content = board_content;
         setPreferredSize(new Dimension(1200, 1000));
         try {
-            image = ImageIO.read(new File("C:\\Users\\craksys\\Desktop\\PLKO.png"));
+            image = ImageIO.read(new File("src/Images/PLKO.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
         try {
-            image2 = ImageIO.read(new File("C:\\Users\\craksys\\Desktop\\sword.png"));
+            image2 = ImageIO.read(new File("src/Images/sword.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
         try {
-            image3 = ImageIO.read(new File("C:\\Users\\craksys\\Desktop\\allay.png"));
+            image3 = ImageIO.read(new File("src/Images/allay.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
         try {
-            image4 = ImageIO.read(new File("C:\\Users\\craksys\\Desktop\\hearth.png"));
+            image4 = ImageIO.read(new File("src/Images/hearth.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }try {
-            image5 = ImageIO.read(new File("C:\\Users\\craksys\\Desktop\\death.png"));
+            image5 = ImageIO.read(new File("src/Images/death.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }try {
-            image6 = ImageIO.read(new File("C:\\Users\\craksys\\Desktop\\time.png"));
+            image6 = ImageIO.read(new File("src/Images/time.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
