@@ -7,7 +7,8 @@ public class Move {
     RandMove randMove = new RandMove();
     TargetedMoveUnit targetedMoveUnit = new TargetedMoveUnit();
     Diplomacy diplomacy = new Diplomacy();
-    private int speed =20;
+    SuppliesUpdate suppliesUpdate = new SuppliesUpdate();
+    private int speed = 20;
 
 
         public void unitmove(Board_Content[][] board_content, Unit_Details[] unit_details){
@@ -20,25 +21,24 @@ public class Move {
                     randMove.randmove(board_content, unit_details, i);
                 }
                 diplomacy.meetdiplomacy(board_content, unit_details, i);//miejsce na sprawdzenie walki
-                board_content[(unit_details[i].x_position)][(unit_details[i].y_position)].occupied = true;//zmienia zajętość pola
                 }
                 else if(unit_details[i].targetactive == true){
                     board_content[unit_details[i].x_position][unit_details[i].y_position].occupied = false;
                     for(int j =0; j<speed;j++){
-                        targetedMoveUnit.movetotargetunit(board_content, unit_details, i);
+                        targetedMoveUnit.movetotargetunit(unit_details, i);
                     }
                     diplomacy.meetdiplomacy(board_content, unit_details, i);//miejsce na sprawdzenie walki
-                    board_content[unit_details[i].x_position][unit_details[i].y_position].occupied = true;
                 }
 
-            }else if(unit_details[i].active == true && unit_details[i].stationary == true && unit_details[i].targetactive == false){
+            }
+            else if(unit_details[i].active == true && unit_details[i].stationary == true && unit_details[i].targetactive == false){
                 unit_details[i].x_scouts_position = unit_details[i].x_position;
                 unit_details[i].y_scouts_position = unit_details[i].y_position;
-            }else if(unit_details[i].active == true && unit_details[i].stationary == true && unit_details[i].targetactive == true){
 
-                //do dokonczenia
             }
-
+            else if(unit_details[i].active == true && unit_details[i].stationary == true && unit_details[i].targetactive == true){
+                targetedMoveUnit.movetotargetscout(unit_details,i);
+            }
         }
     }
 

@@ -28,8 +28,7 @@ public class FindNearTarget {
                       unit_details[i].targetactive = true;
                       }
             default -> {
-                System.out.println("Brak potrzeb");
-                unit_details[i].targetactive = false;
+                      unit_details[i].targetactive = false;
             }
             }
         }

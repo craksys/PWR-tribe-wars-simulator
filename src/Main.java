@@ -1,12 +1,12 @@
 import Board.*;
 import Graph.MyFrame;
 import Move.Move;
+import Move.SuppliesUpdate;
 import Targeting.Target;
 import Unit.Unit;
 import Unit.Unit_Details;
 import Graph.Stats;
-
-import java.awt.*;
+import Write.WriteToFile;
 import java.util.concurrent.TimeUnit;
 
 public class Main
@@ -34,26 +34,34 @@ public class Main
         target.targets(board_content,unit_details);
 
         Move move = new Move();
+        SuppliesUpdate suppliesUpdate = new SuppliesUpdate();
 
         MyFrame frame = new MyFrame(board_content);
+        //MyFrameInput fram2 = new MyFrameInput();
         System.out.println("koniec");
         TimeUnit.SECONDS.sleep(4);
 
-        for(int i =0; i<200;i++){move.unitmove(board_content,unit_details);} //i liczba erund do symulowania
-
-
+        for(int i =0; i<1000;i++){ //i liczba rund do symulowania
+        target.targets(board_content,unit_details);
         move.unitmove(board_content,unit_details);
+        suppliesUpdate.update(unit_details, board_content);
+        }
+
         TimeUnit.SECONDS.sleep(4);
         frame.update(frame.getGraphics());
-        System.out.println(Stats.alive);
-        System.out.println(Stats.deaths);
-        System.out.println(Stats.allays);
+
+
         for(int i =0; i<5000;i++){
-            if(unit_details[i].active ==true){
+            if(unit_details[i].active == true){
                 Stats.rounds++;
             }
         }
-        System.out.println(Stats.rounds);
+        System.out.println("Tyle sojuszy nawiązano: " + Stats.allays);
+        System.out.println("Tyle żywych w tablicy: " + Stats.rounds); //ile w tablicy alive
+        System.out.println("Tyle interakcji: " + Stats.test);
+        System.out.println("Tyle walk z remisem: " + Stats.test2);
+        WriteToFile writeToFile = new WriteToFile();
+        writeToFile.write();
 
 
         }

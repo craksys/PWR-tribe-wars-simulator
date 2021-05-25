@@ -2,6 +2,7 @@ package Unit;
 
 import Board.Board_Content;
 
+import java.security.SecureRandom;
 import java.util.Random;
 
 public class UnitRandom {
@@ -16,12 +17,11 @@ public class UnitRandom {
         unit_details[i].iron = random.nextInt(51) + 30; // procentowo ilość żelaza
         unit_details[i].wood = random.nextInt(51) + 30; // procentowo ilosc drewna
         unit_details[i].gold = random.nextInt(51) + 1; // ilość złotych monet
-        unit_details[i].quantity = random.nextInt(9100) + 1000; // liczebność grupy
+        unit_details[i].quantity = random.nextInt(910) + 100; // liczebność grupy
         unit_details[i].active = true;
-        unit_details[i].id = i;
 
 
-        if(unit_details[i].quantity>=10000)
+        if(unit_details[i].quantity>=1000)
         {
             unit_details[i].stationary = true;
         }else {unit_details[i].stationary = false;}

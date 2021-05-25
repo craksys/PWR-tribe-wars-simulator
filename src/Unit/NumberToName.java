@@ -8,7 +8,7 @@ public class NumberToName {
     int number;
 
     public String change(){
-        number = random.nextInt(8);
+        number = random.nextInt(5);
         switch (number){
             case 0 -> {
                 return "Czlowiek";
@@ -24,15 +24,6 @@ public class NumberToName {
             }
             case 4 -> {
                 return "Troll";
-            }
-            case 5 -> {
-                return "Goblin";
-            }
-            case 6 -> {
-                return "Gnom";
-            }
-            case 7 -> {
-                return "Gigant";
             }
             default -> {
                 return "Czlowiek";
