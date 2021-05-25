@@ -9,7 +9,7 @@ public class MyFrameInput extends JFrame {
     public MyFrameInput() {
         super("Wprowadź dane");
         setSize(300, 100);
-        setLocation(300,0);
+        setLocation(300, 0);
         JPanel panel = new MyPanelInput();
         add(panel);
         pack();

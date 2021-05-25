@@ -7,9 +7,9 @@ public class NumberToName {
     Random random = new Random();
     int number;
 
-    public String change(){
+    public String change() {
         number = random.nextInt(5);
-        switch (number){
+        switch (number) {
             case 0 -> {
                 return "Czlowiek";
             }

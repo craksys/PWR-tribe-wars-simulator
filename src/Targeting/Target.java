@@ -10,13 +10,11 @@ public class Target {
     SelectTarget selectTarget = new SelectTarget();
 
 
-
-    public void targets(Board_Content[][] board_content, Unit_Details[] unit_details)
-    {
-        for(int i=0; i< unit_details.length ;i++){
+    public void targets(Board_Content[][] board_content, Unit_Details[] unit_details) {
+        for (int i = 0; i < unit_details.length; i++) {
             if (unit_details[i].active == true) {
                 selectTarget.selecttarger(unit_details, i);
+            }
         }
-    }
     }
 }
