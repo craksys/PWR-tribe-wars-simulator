@@ -41,7 +41,7 @@ public class Main
         System.out.println("koniec");
         TimeUnit.SECONDS.sleep(4);
 
-        for(int i =0; i<1000;i++){ //i liczba rund do symulowania
+        for(int i =0; i<100;i++){ //i liczba rund do symulowania
         target.targets(board_content,unit_details);
         move.unitmove(board_content,unit_details);
         suppliesUpdate.update(unit_details, board_content);
