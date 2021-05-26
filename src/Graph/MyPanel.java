@@ -2,6 +2,7 @@ package Graph;
 
 import Board.ArrayOfPlaces;
 import Board.BoardContent;
+import Unit.UnitDetails;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -21,7 +22,7 @@ public class MyPanel extends JPanel {
 
     BoardContent[][] boardContent;
 
-    public MyPanel(BoardContent[][] boardContent) {
+    public MyPanel(BoardContent[][] boardContent, UnitDetails[] unitDetails) {
         this.boardContent = boardContent;
         setPreferredSize(new Dimension(1200, 1000));
         try {
@@ -65,7 +66,11 @@ public class MyPanel extends JPanel {
         g2d.drawImage(image, 0, 0, this);
         g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
         g2d.drawString("Statystyki:", 1047, 220);
-        g2d.drawString(String.valueOf(Stats.alive), 1100, 283);
+        g2d.drawString(String.valueOf(Stats.attacks), 1100, 283);
+        g2d.drawString(String.valueOf(Stats.allays), 1100, 335);
+        g2d.drawString(String.valueOf(Stats.alive), 1100, 387);
+        g2d.drawString(String.valueOf(Stats.deaths), 1100, 439);
+        g2d.drawString(String.valueOf(Stats.rounds), 1100, 491);
 
         for (int i = 0; i < 1000; i++) {
             for (int k = 0; k < 1000; k++) {
