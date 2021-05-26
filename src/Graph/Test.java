@@ -1,15 +1,15 @@
 package Graph;
 
-import Board.Board_Content;
+import Board.BoardContent;
 
 import java.awt.EventQueue;
 
 public class Test {
-    public void xd(Board_Content[][] board_content) {
+    public void xd(BoardContent[][] boardContent) {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new MyFrame(board_content);
+                new MyFrame(boardContent);
             }
         });
     }

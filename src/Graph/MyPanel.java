@@ -1,8 +1,7 @@
 package Graph;
 
 import Board.ArrayOfPlaces;
-import Board.Board_Content;
-import Unit.Unit_Details;
+import Board.BoardContent;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -20,10 +19,10 @@ public class MyPanel extends JPanel {
     private BufferedImage image5;
     private BufferedImage image6;
 
-    Board_Content[][] board_content;
+    BoardContent[][] boardContent;
 
-    public MyPanel(Board_Content[][] board_content) {
-        this.board_content = board_content;
+    public MyPanel(BoardContent[][] boardContent) {
+        this.boardContent = boardContent;
         setPreferredSize(new Dimension(1200, 1000));
         try {
             image = ImageIO.read(new File("src/Images/PLKO.png"));
@@ -75,27 +74,27 @@ public class MyPanel extends JPanel {
 
             }
         }
-        for (int u = 0; u < ArrayOfPlaces.x_food.size(); u++) {
+        for (int u = 0; u < ArrayOfPlaces.xFood.size(); u++) {
             g2d.setColor(new Color(128, 0, 0));
-            g2d.drawRect(ArrayOfPlaces.x_food.get(u), ArrayOfPlaces.y_food.get(u), 1, 1);
+            g2d.drawRect(ArrayOfPlaces.xFood.get(u), ArrayOfPlaces.yFood.get(u), 1, 1);
         }
-        for (int u = 0; u < ArrayOfPlaces.x_iron.size(); u++) {
+        for (int u = 0; u < ArrayOfPlaces.xIron.size(); u++) {
             g2d.setColor(new Color(161, 157, 148));
-            g2d.drawRect(ArrayOfPlaces.x_iron.get(u), ArrayOfPlaces.y_iron.get(u), 1, 1);
+            g2d.drawRect(ArrayOfPlaces.xIron.get(u), ArrayOfPlaces.yIron.get(u), 1, 1);
         }
-        for (int u = 0; u < ArrayOfPlaces.x_stone.size(); u++) {
+        for (int u = 0; u < ArrayOfPlaces.xStone.size(); u++) {
             g2d.setColor(new Color(136, 140, 141));
-            g2d.drawRect(ArrayOfPlaces.x_stone.get(u), ArrayOfPlaces.y_stone.get(u), 1, 1);
+            g2d.drawRect(ArrayOfPlaces.xStone.get(u), ArrayOfPlaces.yStone.get(u), 1, 1);
         }
-        for (int u = 0; u < ArrayOfPlaces.x_wood.size(); u++) {
+        for (int u = 0; u < ArrayOfPlaces.xWood.size(); u++) {
             g2d.setColor(new Color(133, 94, 55));
-            g2d.drawRect(ArrayOfPlaces.x_wood.get(u), ArrayOfPlaces.y_wood.get(u), 1, 1);
+            g2d.drawRect(ArrayOfPlaces.xWood.get(u), ArrayOfPlaces.yWood.get(u), 1, 1);
         }
 
 
         for (int i = 0; i < 1000; i++) {
             for (int k = 0; k < 1000; k++) {
-                if (board_content[i][k].occupied) {
+                if (boardContent[i][k].occupied) {
                     for (int l = 0; l < 2; l++) {
                         for (int m = 0; m < 2; m++) {
                             g2d.setColor(new Color(0, 0, 0));

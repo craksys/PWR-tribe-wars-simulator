@@ -1,7 +1,5 @@
 package Graph;
 
-import Board.Board_Content;
-
 import javax.swing.*;
 
 public class MyFrameInput extends JFrame {

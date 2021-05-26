@@ -1,8 +1,6 @@
 package Graph;
 
 
-import Board.Board_Content;
-
 import java.awt.*;
 
 import javax.swing.*;

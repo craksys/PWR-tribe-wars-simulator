@@ -1,77 +1,76 @@
 package Move;
 
-import Board.Board_Content;
+import Board.BoardContent;
 import Graph.Stats;
-import Unit.Unit_Details;
+import Unit.UnitDetails;
 
 import java.util.Random;
 
 public class Diplomacy {
     Random random = new Random();
-    int rannumber;
 
-    protected void meetdiplomacy(Board_Content[][] board_content, Unit_Details[] unit_details, int i) {
+    protected void meetDiplomacy(BoardContent[][] boardContent, UnitDetails[] unitDetails, int i) {
         int j = 0;
-        if (board_content[unit_details[i].x_position][unit_details[i].y_position].occupied == true) {//sprawdzenie czy zajmowane pole jest już zajęte przez inną jednostkę i interakcja z nią
+        if (boardContent[unitDetails[i].xPosition][unitDetails[i].yPosition].occupied) {//sprawdzenie czy zajmowane pole jest już zajęte przez inną jednostkę i interakcja z nią
             Stats.test++;
-            for (; j < unit_details.length; j++) {
-                if (unit_details[i].x_position == unit_details[j].x_position && unit_details[i].y_position == unit_details[j].y_position && i != j && unit_details[j].active == true) {
+            for (; j < unitDetails.length; j++) {
+                if (unitDetails[i].xPosition == unitDetails[j].xPosition && unitDetails[i].yPosition == unitDetails[j].yPosition && i != j && unitDetails[j].active) {
                     break;
                 }
             }
-            if (unit_details[i].hunger < 20 && unit_details[i].wood < 20 && unit_details[i].stone < 20 && unit_details[i].iron < 20) {//bezwarunkowa wojna jezeli jednosta ma malo zasobow
-                war(unit_details, i, j, board_content);
+            if (unitDetails[i].hunger < 20 && unitDetails[i].wood < 20 && unitDetails[i].stone < 20 && unitDetails[i].iron < 20) {//bezwarunkowa wojna jezeli jednosta ma malo zasobow
+                war(unitDetails, i, j, boardContent);
             }
-            if (unit_details[i].type.equals(unit_details[j].type)) { //jezeli 2 jednostki tej samej rasy 25% na polaczenie sie, inaczej wojna
-                rannumber = random.nextInt(4);
-                if (rannumber == 3) {
-                    join(unit_details, i, j, board_content); //polaczenie
+            if (unitDetails[i].type.equals(unitDetails[j].type)) { //jezeli 2 jednostki tej samej rasy 25% na polaczenie sie, inaczej wojna
+                int rnd = random.nextInt(4);
+                if (rnd == 3) {
+                    join(unitDetails, i, j, boardContent); //polaczenie
                 } else {
-                    war(unit_details, i, j, board_content);
+                    war(unitDetails, i, j, boardContent);
                 }
             } else { //jezeli rozna rasa na polu, zawsze wojna
-                war(unit_details, i, j, board_content); //wojna
+                war(unitDetails, i, j, boardContent); //wojna
             }
         } else { // jeżeli pole nie zajęte to ustaw zajętość
-            board_content[unit_details[i].x_position][unit_details[i].y_position].occupied = true;
+            boardContent[unitDetails[i].xPosition][unitDetails[i].yPosition].occupied = true;
         }
 
     }
 
 
-    private void war(Unit_Details[] unit_details, int i, int j, Board_Content[][] board_content) {
-        if (unit_details[i].quantity > unit_details[j].quantity) {
-            unit_details[i].quantity -= unit_details[j].quantity;
-            unit_details[j].quantity = 0;
-            unit_details[j].active = false;
-            switchResources(unit_details, i, j, unit_details[i]);
+    private void war(UnitDetails[] unitDetails, int i, int j, BoardContent[][] board_content) {
+        if (unitDetails[i].quantity > unitDetails[j].quantity) {
+            unitDetails[i].quantity -= unitDetails[j].quantity;
+            unitDetails[j].quantity = 0;
+            unitDetails[j].active = false;
+            switchResources(unitDetails, i, j);
             Stats.alive = Stats.alive - 1;
             Stats.deaths++;
             Stats.attacks++;
-            board_content[(unit_details[i].x_position)][(unit_details[i].y_position)].occupied = true;//zmienia zajętość pola
-            unit_details[j].x_position = -1;
-            unit_details[j].y_position = -1;
-        } else if (unit_details[i].quantity < unit_details[j].quantity) {
-            unit_details[j].quantity -= unit_details[i].quantity;
-            unit_details[i].quantity = 0;
-            unit_details[i].active = false;
-            switchResources(unit_details, j, i, unit_details[i]);
+            board_content[(unitDetails[i].xPosition)][(unitDetails[i].yPosition)].occupied = true;//zmienia zajętość pola
+            unitDetails[j].xPosition = -1;
+            unitDetails[j].yPosition = -1;
+        } else if (unitDetails[i].quantity < unitDetails[j].quantity) {
+            unitDetails[j].quantity -= unitDetails[i].quantity;
+            unitDetails[i].quantity = 0;
+            unitDetails[i].active = false;
+            switchResources(unitDetails, j, i);
             Stats.alive = Stats.alive - 1;
             Stats.deaths++;
             Stats.attacks++;
-            board_content[(unit_details[j].x_position)][(unit_details[j].y_position)].occupied = true;//zmienia zajętość pola
-            unit_details[i].x_position = -1;
-            unit_details[i].y_position = -1;
-        } else if ((unit_details[i].quantity == unit_details[j].quantity) && unit_details[j].quantity != 0 && unit_details[i].quantity != 0) {
-            unit_details[j].quantity = 0;
-            unit_details[j].active = false;
-            unit_details[i].quantity = 0;
-            unit_details[i].active = false;
-            board_content[(unit_details[i].x_position)][(unit_details[i].y_position)].occupied = false;//zmienia zajętość pola
-            unit_details[j].x_position = -1;
-            unit_details[j].y_position = -1;
-            unit_details[i].x_position = -1;
-            unit_details[i].y_position = -1;
+            board_content[(unitDetails[j].xPosition)][(unitDetails[j].yPosition)].occupied = true;//zmienia zajętość pola
+            unitDetails[i].xPosition = -1;
+            unitDetails[i].yPosition = -1;
+        } else if ((unitDetails[i].quantity == unitDetails[j].quantity) && unitDetails[j].quantity != 0 && unitDetails[i].quantity != 0) {
+            unitDetails[j].quantity = 0;
+            unitDetails[j].active = false;
+            unitDetails[i].quantity = 0;
+            unitDetails[i].active = false;
+            board_content[(unitDetails[i].xPosition)][(unitDetails[i].yPosition)].occupied = false;//zmienia zajętość pola
+            unitDetails[j].xPosition = -1;
+            unitDetails[j].yPosition = -1;
+            unitDetails[i].xPosition = -1;
+            unitDetails[i].yPosition = -1;
             Stats.alive = Stats.alive - 2;
             Stats.deaths = Stats.deaths + 2;
             Stats.attacks++;
@@ -79,26 +78,26 @@ public class Diplomacy {
         }
     }
 
-    private void join(Unit_Details[] unit_details, int i, int j, Board_Content[][] board_content) {
-        unit_details[i].quantity += unit_details[j].quantity;
-        unit_details[j].quantity = 0;
-        unit_details[j].active = false;
-        board_content[(unit_details[i].x_position)][(unit_details[i].y_position)].occupied = true;//zmienia zajętość pola
-        unit_details[j].x_position = -1;
-        unit_details[j].y_position = -1;
+    private void join(UnitDetails[] unitDetails, int i, int j, BoardContent[][] boardContent) {
+        unitDetails[i].quantity += unitDetails[j].quantity;
+        unitDetails[j].quantity = 0;
+        unitDetails[j].active = false;
+        boardContent[(unitDetails[i].xPosition)][(unitDetails[i].yPosition)].occupied = true;//zmienia zajętość pola
+        unitDetails[j].xPosition = -1;
+        unitDetails[j].yPosition = -1;
         Stats.alive = Stats.alive - 1;
         Stats.allays++;
-        switchResources(unit_details, i, j, unit_details[i]);
+        switchResources(unitDetails, i, j);
     }
 
-    private void switchResources(Unit_Details[] unit_details, int i, int j, Unit_Details unit_detail) {
-        unit_detail.wood += unit_details[j].wood;
-        if (unit_details[i].wood > 100) unit_details[i].wood = 100;
-        unit_details[i].hunger += unit_details[j].hunger;
-        if (unit_details[i].hunger > 100) unit_details[i].hunger = 100;
-        unit_details[i].stone += unit_details[j].stone;
-        if (unit_details[i].stone > 100) unit_details[i].stone = 100;
-        unit_details[i].iron += unit_details[j].iron;
-        if (unit_details[i].iron > 100) unit_details[i].iron = 100;
+    private void switchResources(UnitDetails[] unitDetails, int i, int j) {
+        unitDetails[i].wood += unitDetails[j].wood;
+        if (unitDetails[i].wood > 100) unitDetails[i].wood = 100;
+        unitDetails[i].hunger += unitDetails[j].hunger;
+        if (unitDetails[i].hunger > 100) unitDetails[i].hunger = 100;
+        unitDetails[i].stone += unitDetails[j].stone;
+        if (unitDetails[i].stone > 100) unitDetails[i].stone = 100;
+        unitDetails[i].iron += unitDetails[j].iron;
+        if (unitDetails[i].iron > 100) unitDetails[i].iron = 100;
     }
 }

@@ -1,25 +1,25 @@
 package Move;
 
-import Board.Board_Content;
+import Board.BoardContent;
 import Graph.Stats;
-import Unit.Unit_Details;
+import Unit.UnitDetails;
 
 public class SuppliesUpdate {
-    public void update(Unit_Details[] unit_details, Board_Content[][] board_content) {
-        for (int i = 0; i < unit_details.length; i++) {
-            if (unit_details[i].active == true) {
-                if (unit_details[i].wood == 0 || unit_details[i].iron == 0 || unit_details[i].hunger == 0 || unit_details[i].stone == 0) {
-                    unit_details[i].active = false;
-                    unit_details[i].quantity = 0;
-                    board_content[unit_details[i].x_position][unit_details[i].y_position].occupied = false;
-                    unit_details[i].x_position = -1;
-                    unit_details[i].y_position = -1;
+    public void update(UnitDetails[] unitDetails, BoardContent[][] board_content) {
+        for (int i = 0; i < unitDetails.length; i++) {
+            if (unitDetails[i].active) {
+                if (unitDetails[i].wood == 0 || unitDetails[i].iron == 0 || unitDetails[i].hunger == 0 || unitDetails[i].stone == 0) {
+                    unitDetails[i].active = false;
+                    unitDetails[i].quantity = 0;
+                    board_content[unitDetails[i].xPosition][unitDetails[i].yPosition].occupied = false;
+                    unitDetails[i].xPosition = -1;
+                    unitDetails[i].yPosition = -1;
                     Stats.alive--;
                 } else {
-                    unit_details[i].wood -= 1;
-                    unit_details[i].stone -= 1;
-                    unit_details[i].iron -= 1;
-                    unit_details[i].hunger -= 1;
+                    unitDetails[i].wood--;
+                    unitDetails[i].stone--;
+                    unitDetails[i].iron--;
+                    unitDetails[i].hunger--;
                 }
             }
         }

@@ -1,6 +1,6 @@
 package Board;
 
-public class Board_Content {
+public class BoardContent {
     public boolean occupied;
     public int type;
 }

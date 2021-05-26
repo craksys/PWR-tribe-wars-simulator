@@ -4,7 +4,7 @@ import Move.Move;
 import Move.SuppliesUpdate;
 import Targeting.Target;
 import Unit.Unit;
-import Unit.Unit_Details;
+import Unit.UnitDetails;
 import Graph.Stats;
 import Write.WriteToFile;
 
@@ -14,37 +14,36 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         Unit unit = new Unit();
         Target target = new Target();
-        int user_units_quantity = 5000;
-        Stats.alive = user_units_quantity;
+        int userUnitsQuantity = 5000;
+        Stats.alive = userUnitsQuantity;
 
 
-        Board_Content[][] board_content = new Board_Content[1000][1000];
-        Board board = new Board(board_content);
-        board.createmap(board_content);
+        BoardContent[][] boardContent = new BoardContent[1000][1000];
+        Board board = new Board(boardContent);
+        board.createMap(boardContent);
 
-        board.placesupplies(board_content, ArrayOfPlaces.x_food, ArrayOfPlaces.y_food, 2000, 1); //żywność
-        board.placesupplies(board_content, ArrayOfPlaces.x_wood, ArrayOfPlaces.y_wood, 1000, 2); // drewno
-        board.placesupplies(board_content, ArrayOfPlaces.x_stone, ArrayOfPlaces.y_stone, 1000, 3); //kamień
-        board.placesupplies(board_content, ArrayOfPlaces.x_iron, ArrayOfPlaces.y_iron, 500, 4); //żelazo
-        board.placesupplies(board_content, ArrayOfPlaces.x_gold, ArrayOfPlaces.y_gold, 100, 5); //złoto
+        board.placeSupplies(boardContent, ArrayOfPlaces.xFood, ArrayOfPlaces.yFood, 2000, 1); //żywność
+        board.placeSupplies(boardContent, ArrayOfPlaces.xWood, ArrayOfPlaces.yWood, 1000, 2); // drewno
+        board.placeSupplies(boardContent, ArrayOfPlaces.xStone, ArrayOfPlaces.yStone, 1000, 3); //kamień
+        board.placeSupplies(boardContent, ArrayOfPlaces.xIron, ArrayOfPlaces.yIron, 500, 4); //żelazo
 
-        Unit_Details[] unit_details = new Unit_Details[user_units_quantity];
+        UnitDetails[] unitDetails = new UnitDetails[userUnitsQuantity];
 
-        unit.generateunits(unit_details, board_content);
-        target.targets(board_content, unit_details);
+        unit.generateUnits(unitDetails, boardContent);
+        target.targets(unitDetails);
 
         Move move = new Move();
         SuppliesUpdate suppliesUpdate = new SuppliesUpdate();
 
-        MyFrame frame = new MyFrame(board_content);
+        MyFrame frame = new MyFrame(boardContent);
         //MyFrameInput fram2 = new MyFrameInput();
         System.out.println("koniec");
         TimeUnit.SECONDS.sleep(4);
 
         for (int i = 0; i < 100; i++) { //i liczba rund do symulowania
-            target.targets(board_content, unit_details);
-            move.unitmove(board_content, unit_details);
-            suppliesUpdate.update(unit_details, board_content);
+            target.targets(unitDetails);
+            move.unitMove(boardContent, unitDetails);
+            suppliesUpdate.update(unitDetails, boardContent);
         }
 
         TimeUnit.SECONDS.sleep(4);
@@ -52,7 +51,7 @@ public class Main {
 
 
         for (int i = 0; i < 5000; i++) {
-            if (unit_details[i].active == true) {
+            if (unitDetails[i].active) {
                 Stats.rounds++;
             }
         }

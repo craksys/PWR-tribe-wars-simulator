@@ -1,39 +1,34 @@
 package Move;
 
-import Board.Board_Content;
-import Unit.Unit_Details;
+import Unit.UnitDetails;
 
 public class TargetedMoveUnit {
 
-    protected void movetotargetunit(Unit_Details[] unit_details, int i) {
-        if (unit_details[i].x_position < unit_details[i].x_target) {
-            unit_details[i].x_position++;
-        } else if (unit_details[i].x_position > unit_details[i].x_target) {
-            unit_details[i].x_position--;
-        } else if (unit_details[i].x_position == unit_details[i].x_target) {
+    protected void moveToTargetUnit(UnitDetails[] unitDetails, int i) {
+        if (unitDetails[i].xPosition < unitDetails[i].xTarget) {
+            unitDetails[i].xPosition++;
+        } else if (unitDetails[i].xPosition > unitDetails[i].xTarget) {
+            unitDetails[i].xPosition--;
         }
 
-        if (unit_details[i].y_position < unit_details[i].y_target) {
-            unit_details[i].y_position++;
-        } else if (unit_details[i].y_position > unit_details[i].y_target) {
-            unit_details[i].y_position--;
-        } else if (unit_details[i].y_position == unit_details[i].y_target) {
+        if (unitDetails[i].yPosition < unitDetails[i].yTarget) {
+            unitDetails[i].yPosition++;
+        } else if (unitDetails[i].yPosition > unitDetails[i].yTarget) {
+            unitDetails[i].yPosition--;
         }
     }
 
-    protected void movetotargetscout(Unit_Details[] unit_details, int i) {
-        if (unit_details[i].x_scouts_position < unit_details[i].x_target) {
-            unit_details[i].x_scouts_position++;
-        } else if (unit_details[i].x_scouts_position > unit_details[i].x_target) {
-            unit_details[i].x_scouts_position--;
-        } else if (unit_details[i].x_scouts_position == unit_details[i].x_target) {
+    protected void moveToTargetScout(UnitDetails[] unitDetails, int i) {
+        if (unitDetails[i].xScoutsPosition < unitDetails[i].xTarget) {
+            unitDetails[i].xScoutsPosition++;
+        } else if (unitDetails[i].xScoutsPosition > unitDetails[i].xTarget) {
+            unitDetails[i].xScoutsPosition--;
         }
 
-        if (unit_details[i].y_scouts_position < unit_details[i].y_target) {
-            unit_details[i].y_scouts_position++;
-        } else if (unit_details[i].y_scouts_position > unit_details[i].y_target) {
-            unit_details[i].y_scouts_position--;
-        } else if (unit_details[i].y_scouts_position == unit_details[i].y_target) {
+        if (unitDetails[i].yScoutsPosition < unitDetails[i].yTarget) {
+            unitDetails[i].yScoutsPosition++;
+        } else if (unitDetails[i].yScoutsPosition > unitDetails[i].yTarget) {
+            unitDetails[i].yScoutsPosition--;
         }
     }
 
