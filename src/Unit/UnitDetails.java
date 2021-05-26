@@ -6,7 +6,6 @@ public class UnitDetails {
     public int stone; // procenty
     public int iron; // procenty
     public int wood; // procenty
-    public int gold; // ilość złotych monet
     public int quantity; // liczebność grupy
     public boolean stationary = false; //koczownicy czy stacjonarni
     public int xPosition; // pozycja x

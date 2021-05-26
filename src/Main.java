@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         MyFrameInput fram2 = new MyFrameInput();
-        while(fram2.buttonclicked != true ){TimeUnit.MILLISECONDS.sleep(30);}// oczekuj na wpisanie danych
+        while(!fram2.buttonclicked){TimeUnit.MILLISECONDS.sleep(30);}// oczekuj na wpisanie danych
         Unit unit = new Unit();
         Target target = new Target();
 
@@ -38,7 +38,6 @@ public class Main {
 
         Move move = new Move();
         SuppliesUpdate suppliesUpdate = new SuppliesUpdate();
-
         MyFrame frame = new MyFrame(boardContent,unitDetails);
 
         TimeUnit.SECONDS.sleep(3);
@@ -46,24 +45,24 @@ public class Main {
         for (int i = 0; i < fram2.rounds; i++) { //i liczba rund do symulowania
             target.targets(unitDetails);
             move.unitMove(boardContent, unitDetails, fram2.speed);
-            suppliesUpdate.update(unitDetails, boardContent);
-            Stats.rounds++;
-            Stats.alive++;
+            if(i % 5 == 0 && i != 0) {
+                suppliesUpdate.update(unitDetails, boardContent);
+            }
             if(i%10 == 0 && i!=0){
                 frame.update(frame.getGraphics());
                 TimeUnit.SECONDS.sleep(1);
             }
+            Stats.rounds++;
         }
         frame.update(frame.getGraphics());
 
-        for (int i = 0; i < unitDetails.length; i++) {
-            if (unitDetails[i].active) {
-                Stats.rounds++;
-            }
+        int help=0;
+        for(int z=0;z<unitDetails.length;z++)
+        {if(unitDetails[z].active) help++;
         }
 
         System.out.println("Tyle sojuszy nawiązano: " + Stats.allays);
-        System.out.println("Tyle żywych w tablicy: " + Stats.rounds); //ile w tablicy alive
+        System.out.println("Tyle żywych jednostek: " + Stats.alive + " a tyle naprawde zyje: " + help); //ile w tablicy alive
         System.out.println("Tyle interakcji: " + Stats.test);
         System.out.println("Tyle walk z remisem: " + Stats.test2);
         WriteToFile writeToFile = new WriteToFile();

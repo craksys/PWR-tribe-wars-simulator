@@ -13,12 +13,15 @@ public class UnitRandom {
         unitDetails[i].stone = random.nextInt(51) + 30; // procentwo ilość kamienia
         unitDetails[i].iron = random.nextInt(51) + 30; // procentowo ilość żelaza
         unitDetails[i].wood = random.nextInt(51) + 30; // procentowo ilosc drewna
-        unitDetails[i].gold = random.nextInt(51) + 1; // ilość złotych monet
         unitDetails[i].quantity = random.nextInt(910) + 100; // liczebność grupy
         unitDetails[i].active = true;
 
+        if (unitDetails[i].quantity >= 1000) {
+            unitDetails[i].stationary = true;
+        } else {
+            unitDetails[i].stationary = false;
+        }
 
-        unitDetails[i].stationary = unitDetails[i].quantity >= 1000;
         do {
             unitDetails[i].xPosition = random.nextInt(1000);
             unitDetails[i].yPosition = random.nextInt(1000);
@@ -27,7 +30,6 @@ public class UnitRandom {
         boardContent[unitDetails[i].xPosition][unitDetails[i].yPosition].occupied = true;
         unitDetails[i].xScoutsPosition = unitDetails[i].xPosition;
         unitDetails[i].yScoutsPosition = unitDetails[i].yPosition;
-
     }
 
     private String numberToName() {

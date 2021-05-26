@@ -21,7 +21,7 @@ public class Diplomacy {
             if (unitDetails[i].hunger < 20 && unitDetails[i].wood < 20 && unitDetails[i].stone < 20 && unitDetails[i].iron < 20) {//bezwarunkowa wojna jezeli jednosta ma malo zasobow
                 war(unitDetails, i, j, boardContent);
             }
-            if (unitDetails[i].type.equals(unitDetails[j].type)) { //jezeli 2 jednostki tej samej rasy 25% na polaczenie sie, inaczej wojna
+            if (unitDetails[i].type.equals(unitDetails[j].type) && unitDetails[i].active && unitDetails[j].active) { //jezeli 2 jednostki tej samej rasy 25% na polaczenie sie, inaczej wojna
                 int rnd = random.nextInt(4);
                 if (rnd == 3) {
                     join(unitDetails, i, j, boardContent); //polaczenie
@@ -85,7 +85,10 @@ public class Diplomacy {
         boardContent[(unitDetails[i].xPosition)][(unitDetails[i].yPosition)].occupied = true;//zmienia zajętość pola
         unitDetails[j].xPosition = -1;
         unitDetails[j].yPosition = -1;
-        Stats.alive = Stats.alive - 1;
+        if(unitDetails[i].quantity >= 1000){
+            unitDetails[i].stationary = true;
+        }
+        Stats.alive--;
         Stats.allays++;
         switchResources(unitDetails, i, j);
     }

@@ -8,13 +8,15 @@ public class SuppliesUpdate {
     public void update(UnitDetails[] unitDetails, BoardContent[][] board_content) {
         for (int i = 0; i < unitDetails.length; i++) {
             if (unitDetails[i].active) {
-                if (unitDetails[i].wood == 0 || unitDetails[i].iron == 0 || unitDetails[i].hunger == 0 || unitDetails[i].stone == 0) {
+                if (unitDetails[i].wood <= 0 || unitDetails[i].iron <= 0 || unitDetails[i].hunger <= 0 || unitDetails[i].stone <= 0) {
                     unitDetails[i].active = false;
                     unitDetails[i].quantity = 0;
                     board_content[unitDetails[i].xPosition][unitDetails[i].yPosition].occupied = false;
                     unitDetails[i].xPosition = -1;
                     unitDetails[i].yPosition = -1;
                     Stats.alive--;
+                    Stats.deaths++;
+                    System.out.println(i +" zdechl z potrzeby");
                 } else {
                     unitDetails[i].wood--;
                     unitDetails[i].stone--;
