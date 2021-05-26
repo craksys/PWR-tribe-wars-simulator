@@ -41,7 +41,7 @@ public class Main {
 
         MyFrame frame = new MyFrame(boardContent,unitDetails);
 
-        TimeUnit.SECONDS.sleep(4);
+        TimeUnit.SECONDS.sleep(3);
 
         for (int i = 0; i < fram2.rounds; i++) { //i liczba rund do symulowania
             target.targets(unitDetails);
@@ -49,11 +49,12 @@ public class Main {
             suppliesUpdate.update(unitDetails, boardContent);
             Stats.rounds++;
             Stats.alive++;
+            if(i%10 == 0 && i!=0){
+                frame.update(frame.getGraphics());
+                TimeUnit.SECONDS.sleep(1);
+            }
         }
-
-        TimeUnit.SECONDS.sleep(4);
         frame.update(frame.getGraphics());
-
 
         for (int i = 0; i < unitDetails.length; i++) {
             if (unitDetails[i].active) {
