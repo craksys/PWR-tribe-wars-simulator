@@ -18,6 +18,7 @@ public class SuppliesUpdate {
                     Stats.deaths++;
                     System.out.println(i +" zdechl z potrzeby");
                 } else {
+                    unitDetails[i].quantity+=15;
                     unitDetails[i].wood--;
                     unitDetails[i].stone--;
                     unitDetails[i].iron--;
