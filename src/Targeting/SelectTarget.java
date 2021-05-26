@@ -48,4 +48,5 @@ public class SelectTarget {
         }
         unitDetails[i].targetType = 0;
     }
+
 }

@@ -37,10 +37,9 @@ public class Main {
 
         MyFrame frame = new MyFrame(boardContent);
         //MyFrameInput fram2 = new MyFrameInput();
-        System.out.println("koniec");
         TimeUnit.SECONDS.sleep(4);
 
-        for (int i = 0; i < 100; i++) { //i liczba rund do symulowania
+        for (int i = 0; i < 10; i++) { //i liczba rund do symulowania
             target.targets(unitDetails);
             move.unitMove(boardContent, unitDetails);
             suppliesUpdate.update(unitDetails, boardContent);

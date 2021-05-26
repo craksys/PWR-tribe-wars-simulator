@@ -6,7 +6,7 @@ public class Unit {
 
     UnitRandom unitRandom = new UnitRandom();
 
-    public void generateUnits(UnitDetails[] unitDetails, BoardContent[][] boardContent) throws InterruptedException {
+    public void generateUnits(UnitDetails[] unitDetails, BoardContent[][] boardContent) {
         for (int i = 0; i < unitDetails.length; i++) {
             unitDetails[i] = new UnitDetails();
         }
@@ -14,6 +14,5 @@ public class Unit {
         for (int i = 0; i < unitDetails.length; i++) {
             unitRandom.unitFill(unitDetails, boardContent, i);
         }
-        return;
     }
 }
