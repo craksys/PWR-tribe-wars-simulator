@@ -21,9 +21,11 @@ public class MyPanel extends JPanel {
     private BufferedImage image6;
 
     BoardContent[][] boardContent;
+    UnitDetails[] unitDetails;
 
     public MyPanel(BoardContent[][] boardContent, UnitDetails[] unitDetails) {
         this.boardContent = boardContent;
+        this.unitDetails = unitDetails;
         setPreferredSize(new Dimension(1200, 1000));
         try {
             image = ImageIO.read(new File("src/Images/PLKO.png"));
@@ -96,21 +98,68 @@ public class MyPanel extends JPanel {
             g2d.drawRect(ArrayOfPlaces.xWood.get(u), ArrayOfPlaces.yWood.get(u), 1, 1);
         }
 
-
-        for (int i = 0; i < 1000; i++) {
-            for (int k = 0; k < 1000; k++) {
-                if (boardContent[i][k].occupied) {
-                    for (int l = 0; l < 2; l++) {
-                        for (int m = 0; m < 2; m++) {
+        for(int i=0; i<unitDetails.length; i++){
+            if(unitDetails[i].active == true){
+                g2d.setColor(new Color(0, 0, 0));
+                if(unitDetails[i].quantity<= 1000){
+                    for(int k =0; k<2;k++){
+                        for(int l =0; l<2;l++){
                             g2d.setColor(new Color(0, 0, 0));
-                            g2d.drawRect(i + l, k + m, 1, 1);
+                            g2d.drawRect(unitDetails[i].xPosition+k , unitDetails[i].yPosition+l, 1, 1);
                         }
-
+                    }
+                }else if(unitDetails[i].quantity<= 3000 && unitDetails[i].quantity>1000){
+                    for(int k =0; k<3;k++){
+                        for(int l =0; l<3;l++){
+                            g2d.setColor(new Color(0, 0, 0));
+                            g2d.drawRect(unitDetails[i].xPosition+k , unitDetails[i].yPosition+l, 1, 1);
+                        }
+                    }
+                }
+                else if(unitDetails[i].quantity<= 6000 && unitDetails[i].quantity>3000){
+                    for(int k =0; k<4;k++){
+                        for(int l =0; l<4;l++){
+                            g2d.setColor(new Color(0, 0, 255));
+                            g2d.drawRect(unitDetails[i].xPosition+k , unitDetails[i].yPosition+l, 1, 1);
+                        }
+                    }
+                }
+                else if(unitDetails[i].quantity<= 10000&& unitDetails[i].quantity>6000){
+                    for(int k =0; k<5;k++){
+                        for(int l =0; l<5;l++){
+                            g2d.setColor(new Color(138, 43, 226));
+                            g2d.drawRect(unitDetails[i].xPosition+k , unitDetails[i].yPosition+l, 1, 1);
+                        }
+                    }
+                }
+                else if(unitDetails[i].quantity<= 15000 && unitDetails[i].quantity>10000){
+                    for(int k =0; k<6;k++){
+                        for(int l =0; l<6;l++){
+                            g2d.setColor(new Color(255, 0, 0));
+                            g2d.drawRect(unitDetails[i].xPosition+k , unitDetails[i].yPosition+l, 1, 1);
+                        }
                     }
                 }
 
+
+
             }
         }
+
+       // for (int i = 0; i < 1000; i++) {
+           // for (int k = 0; k < 1000; k++) {
+              //  if (boardContent[i][k].occupied) {
+                  //  for (int l = 0; l < 2; l++) {
+                     //   for (int m = 0; m < 2; m++) {
+                      //      g2d.setColor(new Color(0, 0, 0));
+                      //      g2d.drawRect(i + l, k + m, 1, 1);
+                       // }
+
+                   // }
+              //  }
+
+           // }
+        //}
         for (int d = 0; d < 1001; d++) {
             g2d.setColor(new Color(255, 255, 255));
             g2d.drawRect(1001, d, 1, 1);
@@ -124,4 +173,5 @@ public class MyPanel extends JPanel {
         g2d.drawImage(image6, 1016, 466, this);
 
     }
+
 }

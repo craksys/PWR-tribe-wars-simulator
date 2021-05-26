@@ -16,6 +16,7 @@ public class SuppliesUpdate {
                     unitDetails[i].yPosition = -1;
                     Stats.alive--;
                 } else {
+                    unitDetails[i].quantity+=15;
                     unitDetails[i].wood--;
                     unitDetails[i].stone--;
                     unitDetails[i].iron--;
