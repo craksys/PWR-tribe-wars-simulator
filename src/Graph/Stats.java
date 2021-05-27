@@ -8,4 +8,5 @@ public class Stats {
     public static int allays;
     public static int test;
     public static int test2;
+    public static int hungerdead;
 }

@@ -18,12 +18,14 @@ public class Diplomacy {
                     break;
                 }
             }
-            if (unitDetails[i].hunger < 20 && unitDetails[i].wood < 20 && unitDetails[i].stone < 20 && unitDetails[i].iron < 20) {//bezwarunkowa wojna jezeli jednosta ma malo zasobow
-                war(unitDetails, i, j, boardContent);
+            if (unitDetails[i].hunger < 20 || unitDetails[i].wood < 20 || unitDetails[i].stone < 20 || unitDetails[i].iron < 20) {//bezwarunkowa wojna jezeli jednosta ma malo zasobow
+               war(unitDetails, i, j, boardContent);
             }
-            if (unitDetails[i].type.equals(unitDetails[j].type) && unitDetails[i].active && unitDetails[j].active) { //jezeli 2 jednostki tej samej rasy 25% na polaczenie sie, inaczej wojna
-                int rnd = random.nextInt(4);
+            else if (unitDetails[i].type.equals(unitDetails[j].type) && (unitDetails[i].active && unitDetails[j].active)) { //jezeli 2 jednostki tej samej rasy 25% na polaczenie sie, inaczej wojna
+                int rnd =0;
+                rnd = random.nextInt(4);
                 if (rnd == 3) {
+                    Stats.allays++;
                     join(unitDetails, i, j, boardContent); //polaczenie
                 } else {
                     war(unitDetails, i, j, boardContent);
@@ -50,6 +52,7 @@ public class Diplomacy {
             board_content[(unitDetails[i].xPosition)][(unitDetails[i].yPosition)].occupied = true;//zmienia zajętość pola
             unitDetails[j].xPosition = -1;
             unitDetails[j].yPosition = -1;
+            if(unitDetails[j].quantity<3000){unitDetails[i].stationary=false;}
         } else if (unitDetails[i].quantity < unitDetails[j].quantity) {
             unitDetails[j].quantity -= unitDetails[i].quantity;
             unitDetails[i].quantity = 0;
@@ -61,7 +64,8 @@ public class Diplomacy {
             board_content[(unitDetails[j].xPosition)][(unitDetails[j].yPosition)].occupied = true;//zmienia zajętość pola
             unitDetails[i].xPosition = -1;
             unitDetails[i].yPosition = -1;
-        } else if ((unitDetails[i].quantity == unitDetails[j].quantity) && unitDetails[j].quantity != 0 && unitDetails[i].quantity != 0) {
+            if(unitDetails[j].quantity<3000){unitDetails[j].stationary=false;}
+        } else if ((unitDetails[i].quantity == unitDetails[j].quantity) && (unitDetails[j].quantity != 0 && unitDetails[i].quantity != 0)) {
             unitDetails[j].quantity = 0;
             unitDetails[j].active = false;
             unitDetails[i].quantity = 0;
@@ -75,24 +79,26 @@ public class Diplomacy {
             Stats.deaths = Stats.deaths + 2;
             Stats.attacks++;
             Stats.test2++;
+            unitDetails[j].stationary=false;
+            unitDetails[i].stationary=false;
         }
     }
 
     private void join(UnitDetails[] unitDetails, int i, int j, BoardContent[][] boardContent) {
-        unitDetails[i].quantity += unitDetails[j].quantity;
-        unitDetails[j].quantity = 0;
-        unitDetails[j].active = false;
-        boardContent[(unitDetails[i].xPosition)][(unitDetails[i].yPosition)].occupied = true;//zmienia zajętość pola
-        unitDetails[j].xPosition = -1;
-        unitDetails[j].yPosition = -1;
-        if(unitDetails[i].quantity >= 1000){
-            unitDetails[i].stationary = true;
-        }
-        Stats.alive--;
-        Stats.allays++;
-        switchResources(unitDetails, i, j);
+            unitDetails[i].quantity += unitDetails[j].quantity;
+            unitDetails[j].quantity = 0;
+            unitDetails[j].active = false;
+            unitDetails[j].xPosition = -1;
+            unitDetails[j].yPosition = -1;
+            if (unitDetails[i].quantity >= 3000) {
+                unitDetails[i].stationary = true;
+            } else {
+                unitDetails[i].stationary = false;
+            }
+            Stats.alive--;
+            switchResources(unitDetails, i, j);
+            boardContent[(unitDetails[i].xPosition)][(unitDetails[i].yPosition)].occupied = true;//zmienia zajętość pola
     }
-
     private void switchResources(UnitDetails[] unitDetails, int i, int j) {
         unitDetails[i].wood += unitDetails[j].wood;
         if (unitDetails[i].wood > 100) unitDetails[i].wood = 100;

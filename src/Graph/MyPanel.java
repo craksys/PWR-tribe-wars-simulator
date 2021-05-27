@@ -68,10 +68,14 @@ public class MyPanel extends JPanel {
         g2d.drawImage(image, 0, 0, this);
         g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
         g2d.drawString("Statystyki:", 1047, 220);
+        int alive=0;
+        for(int i =0; i<unitDetails.length;i++){
+            if(unitDetails[i].active == true){alive++;}
+        }
         g2d.drawString(String.valueOf(Stats.attacks), 1100, 283);
         g2d.drawString(String.valueOf(Stats.allays), 1100, 335);
         g2d.drawString(String.valueOf(Stats.alive), 1100, 387);
-        g2d.drawString(String.valueOf(Stats.deaths), 1100, 439);
+        g2d.drawString(String.valueOf(Stats.deaths+Stats.hungerdead), 1100, 439);
         g2d.drawString(String.valueOf(Stats.rounds), 1100, 491);
 
         for (int i = 0; i < 1000; i++) {

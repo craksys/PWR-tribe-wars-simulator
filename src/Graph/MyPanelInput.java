@@ -16,7 +16,7 @@ public class MyPanelInput extends JPanel {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         g.setFont(new Font("TimesRoman", Font.PLAIN, 15));
-        g2d.drawString("Szybkość Symulacji", 10, 70);
+        g2d.drawString("Szybkość Jednostek", 10, 70);
         g.setFont(new Font("TimesRoman", Font.PLAIN, 15));
         g2d.drawString("Ilość Jednostek", 10, 110);
         g.setFont(new Font("TimesRoman", Font.PLAIN, 15));

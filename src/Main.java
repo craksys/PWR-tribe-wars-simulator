@@ -43,10 +43,10 @@ public class Main {
         TimeUnit.SECONDS.sleep(3);
 
         for (int i = 0; i < fram2.rounds; i++) { //i liczba rund do symulowania
+            suppliesUpdate.update(unitDetails, boardContent);
             target.targets(unitDetails);
             move.unitMove(boardContent, unitDetails, fram2.speed);
             //if(i % 5 == 0 && i != 0) {
-                suppliesUpdate.update(unitDetails, boardContent);
             //}
             if(i%10 == 0 && i!=0){
                 frame.update(frame.getGraphics());
@@ -65,6 +65,7 @@ public class Main {
         System.out.println("Tyle żywych jednostek: " + Stats.alive + " a tyle naprawde zyje: " + help); //ile w tablicy alive
         System.out.println("Tyle interakcji: " + Stats.test);
         System.out.println("Tyle walk z remisem: " + Stats.test2);
+        System.out.println("Tyle umarło z głodu: "+Stats.hungerdead);
         WriteToFile writeToFile = new WriteToFile();
         writeToFile.write();
 

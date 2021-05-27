@@ -26,13 +26,13 @@ public class Movement {
             unitDetails[i].xPosition++;
         } else if (unitDetails[i].xPosition > unitDetails[i].xTarget) {
             unitDetails[i].xPosition--;
-        }
-
+        }else{}
         if (unitDetails[i].yPosition < unitDetails[i].yTarget) {
             unitDetails[i].yPosition++;
         } else if (unitDetails[i].yPosition > unitDetails[i].yTarget) {
             unitDetails[i].yPosition--;
         }
+        else{}
     }
 
     protected void moveToTargetScout(UnitDetails[] unitDetails, int i) {
@@ -40,13 +40,13 @@ public class Movement {
             unitDetails[i].xScoutsPosition++;
         } else if (unitDetails[i].xScoutsPosition > unitDetails[i].xTarget) {
             unitDetails[i].xScoutsPosition--;
-        }
+        }else{}
 
         if (unitDetails[i].yScoutsPosition < unitDetails[i].yTarget) {
             unitDetails[i].yScoutsPosition++;
         } else if (unitDetails[i].yScoutsPosition > unitDetails[i].yTarget) {
             unitDetails[i].yScoutsPosition--;
-        }
+        }else{}
     }
 
 }

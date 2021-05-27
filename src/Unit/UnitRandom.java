@@ -16,7 +16,7 @@ public class UnitRandom {
         unitDetails[i].quantity = random.nextInt(910) + 100; // liczebność grupy
         unitDetails[i].active = true;
 
-        if (unitDetails[i].quantity >= 1000) {
+        if (unitDetails[i].quantity >= 3000) {
             unitDetails[i].stationary = true;
         } else {
             unitDetails[i].stationary = false;
