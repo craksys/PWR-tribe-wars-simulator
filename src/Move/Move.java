@@ -5,6 +5,8 @@ import Unit.UnitDetails;
 
 public class Move {
     Movement movement = new Movement();
+    MovementScouts movementScouts = new MovementScouts();
+    MovementUnit movementUnit = new MovementUnit();
     Diplomacy diplomacy = new Diplomacy();
 
 
@@ -21,7 +23,7 @@ public class Move {
                     } else if (unitDetails[i].targetActive) {
                         boardContent[unitDetails[i].xPosition][unitDetails[i].yPosition].occupied = false;
                         for (int j = 0; j < speed; j++) {
-                            movement.moveToTargetUnit(unitDetails, i);
+                            movementUnit.move(unitDetails, i);
                         }
                         diplomacy.meetDiplomacy(boardContent, unitDetails, i);//miejsce na sprawdzenie walki
                     }
@@ -31,7 +33,8 @@ public class Move {
                     unitDetails[i].yScoutsPosition = unitDetails[i].yPosition;
 
                 } else if (unitDetails[i].active && unitDetails[i].stationary && unitDetails[i].targetActive) {
-                    movement.moveToTargetScout(unitDetails, i);
+                    movementScouts.move(unitDetails,i);
+                    //movement.moveToTargetScout(unitDetails, i);
                 }
             }
         }
