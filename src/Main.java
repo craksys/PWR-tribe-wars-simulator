@@ -45,9 +45,9 @@ public class Main {
         for (int i = 0; i < fram2.rounds; i++) { //i liczba rund do symulowania
             target.targets(unitDetails);
             move.unitMove(boardContent, unitDetails, fram2.speed);
-            if(i % 5 == 0 && i != 0) {
+            //if(i % 5 == 0 && i != 0) {
                 suppliesUpdate.update(unitDetails, boardContent);
-            }
+            //}
             if(i%10 == 0 && i!=0){
                 frame.update(frame.getGraphics());
                 TimeUnit.SECONDS.sleep(1);

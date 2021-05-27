@@ -19,6 +19,9 @@ public class SuppliesUpdate {
                     System.out.println(i +" zdechl z potrzeby");
                 } else {
                     unitDetails[i].quantity+=15;
+                    if(unitDetails[i].quantity >= 1000){
+                        unitDetails[i].stationary = true;
+                    }
                     unitDetails[i].wood--;
                     unitDetails[i].stone--;
                     unitDetails[i].iron--;
