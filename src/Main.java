@@ -9,10 +9,12 @@ import Unit.UnitDetails;
 import Graph.Stats;
 import Write.WriteToFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
         MyFrameInput fram2 = new MyFrameInput();
         while(!fram2.buttonclicked){TimeUnit.MILLISECONDS.sleep(30);}// oczekuj na wpisanie danych
         Unit unit = new Unit();
@@ -42,6 +44,8 @@ public class Main {
         WriteToFile writeToFile = new WriteToFile();
 
         TimeUnit.SECONDS.sleep(3);
+        File file = new File("src/Images/Dane.csv");
+        file.delete();
 
         for (int i = 0; i < fram2.rounds; i++) { //i liczba rund do symulowania
             suppliesUpdate.update(unitDetails, boardContent);
