@@ -12,7 +12,7 @@ public class Diplomacy {
     protected void meetDiplomacy(BoardContent[][] boardContent, UnitDetails[] unitDetails, int i) {
         int j = 0;
         if (boardContent[unitDetails[i].xPosition][unitDetails[i].yPosition].occupied) {//sprawdzenie czy zajmowane pole jest już zajęte przez inną jednostkę i interakcja z nią
-            Stats.test++;
+            Stats.interactions++;
             for (; j < unitDetails.length; j++) {
                 if (unitDetails[i].xPosition == unitDetails[j].xPosition && unitDetails[i].yPosition == unitDetails[j].yPosition && i != j && unitDetails[j].active) {
                     break;
@@ -46,7 +46,7 @@ public class Diplomacy {
             unitDetails[j].quantity = 0;
             unitDetails[j].active = false;
             switchResources(unitDetails, i, j);
-            Stats.alive = Stats.alive - 1;
+            Stats.alive--;
             Stats.deaths++;
             Stats.attacks++;
             board_content[(unitDetails[i].xPosition)][(unitDetails[i].yPosition)].occupied = true;//zmienia zajętość pola
@@ -60,7 +60,7 @@ public class Diplomacy {
             unitDetails[i].quantity = 0;
             unitDetails[i].active = false;
             switchResources(unitDetails, j, i);
-            Stats.alive = Stats.alive - 1;
+            Stats.alive--;
             Stats.deaths++;
             Stats.attacks++;
             board_content[(unitDetails[j].xPosition)][(unitDetails[j].yPosition)].occupied = true;//zmienia zajętość pola
@@ -82,7 +82,7 @@ public class Diplomacy {
             Stats.alive = Stats.alive - 2;
             Stats.deaths = Stats.deaths + 2;
             Stats.attacks++;
-            Stats.test2++;
+            Stats.ties++;
             unitDetails[j].stationary=false;
             unitDetails[i].stationary=false;
         }

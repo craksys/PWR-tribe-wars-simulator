@@ -6,7 +6,7 @@ public class Stats {
     public static int rounds;
     public static int attacks;
     public static int allays;
-    public static int test;
-    public static int test2;
-    public static int hungerdead;
+    public static int interactions;
+    public static int ties;
+    public static int lackOfResources;
 }

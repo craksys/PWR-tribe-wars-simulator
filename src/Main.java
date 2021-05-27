@@ -47,33 +47,21 @@ public class Main {
         File file = new File("src/Images/Dane.csv");
         file.delete();
 
+        writeToFile.writeDataToFile();
         for (int i = 0; i < fram2.rounds; i++) { //i liczba rund do symulowania
             suppliesUpdate.update(unitDetails, boardContent);
             target.targets(unitDetails);
             move.unitMove(boardContent, unitDetails, fram2.speed);
-            if(i%10 == 0 && i!=0){
+            if(i% fram2.refresh == 0 && i!=0){
                 frame.update(frame.getGraphics());
                 TimeUnit.SECONDS.sleep(1);
-                writeToFile.createAndWrite();
+                writeToFile.writeDataToFile();
             }
             Stats.rounds++;
         }
         frame.update(frame.getGraphics());
-        writeToFile.createAndWrite();
-
-        int help=0;
-        for(int z=0;z<unitDetails.length;z++)
-        {if(unitDetails[z].active) help++;
-        }
-
-        System.out.println("Tyle sojuszy nawiązano: " + Stats.allays);
-        System.out.println("Tyle żywych jednostek: " + Stats.alive + " a tyle naprawde zyje: " + help); //ile w tablicy alive
-        System.out.println("Tyle interakcji: " + Stats.test);
-        System.out.println("Tyle walk z remisem: " + Stats.test2);
-        System.out.println("Tyle umarło z głodu: "+Stats.hungerdead);
-
-
-
+        writeToFile.writeDataToFile();
     }
+
 }
 

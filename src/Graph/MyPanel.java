@@ -71,7 +71,7 @@ public class MyPanel extends JPanel {
         g2d.drawString(String.valueOf(Stats.attacks), 1100, 283);
         g2d.drawString(String.valueOf(Stats.allays), 1100, 335);
         g2d.drawString(String.valueOf(Stats.alive), 1100, 387);
-        g2d.drawString(String.valueOf(Stats.deaths+Stats.hungerdead), 1100, 439);
+        g2d.drawString(String.valueOf(Stats.deaths+Stats.lackOfResources), 1100, 439);
         g2d.drawString(String.valueOf(Stats.rounds), 1100, 491);
 
         for (int i = 0; i < 1000; i++) {

@@ -42,7 +42,6 @@ public class MyFrameInput extends JFrame implements ActionListener {
         textiron.setBounds(150,290,150,30);
         textrefresh = new JTextField(10);
         textrefresh.setBounds(150,330,150,30);
-        //textField.setFont(textField.getFont().deriveFont(25f));
         button1 = new JButton("ok");
         button1.setBounds(172,390,56,30);
         panel.setLayout(null);

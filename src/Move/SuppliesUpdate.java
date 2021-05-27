@@ -16,7 +16,7 @@ public class SuppliesUpdate {
                     unitDetails[i].xPosition = -1;
                     unitDetails[i].yPosition = -1;
                     Stats.alive--;
-                    Stats.hungerdead++;
+                    Stats.lackOfResources++;
                 } else {
                     unitDetails[i].quantity+=3;
                     if(unitDetails[i].quantity >= 3000){

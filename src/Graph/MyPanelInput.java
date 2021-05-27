@@ -11,7 +11,6 @@ public class MyPanelInput extends JPanel {
 
     }
 
-
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
@@ -30,9 +29,9 @@ public class MyPanelInput extends JPanel {
         g.setFont(new Font("TimesRoman", Font.PLAIN, 15));
         g2d.drawString("Ilość Żelaza", 10, 310);
         g.setFont(new Font("TimesRoman", Font.PLAIN, 15));
-        g2d.drawString("Odświerzanie", 10, 350);
-
+        g2d.drawString("Odświeżanie", 10, 350);
     }
+
 }
 
 
