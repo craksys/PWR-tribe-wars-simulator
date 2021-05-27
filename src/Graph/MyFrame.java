@@ -15,8 +15,6 @@ public class MyFrame extends JFrame {
         JPanel panel = new MyPanel(boardContent,unitDetails);
         add(panel);
         pack();
-        //setLayout(new FlowLayout());
-        //add(new JButton("Przycisk 1"));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }

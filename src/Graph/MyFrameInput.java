@@ -1,9 +1,9 @@
 package Graph;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.util.concurrent.TimeUnit;
-import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import static java.lang.Integer.parseInt;
 
@@ -17,18 +17,10 @@ public class MyFrameInput extends JFrame implements ActionListener {
     JTextField textstone;
     public int rounds,quantity,speed;
     public int food,wood,stone,iron;
-    JPanel panel;
-    private JButton button1;
-    JButton button2;
+    private final JButton button1;
     public boolean buttonclicked;
-    ActionListener click = new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
 
-        }
-    };
-
-    public MyFrameInput() throws InterruptedException {
+    public MyFrameInput() {
         super("Wprowadź dane");
         setSize(300, 100);
         setLocation(700, 300);

@@ -46,8 +46,6 @@ public class Main {
             suppliesUpdate.update(unitDetails, boardContent);
             target.targets(unitDetails);
             move.unitMove(boardContent, unitDetails, fram2.speed);
-            //if(i % 5 == 0 && i != 0) {
-            //}
             if(i%10 == 0 && i!=0){
                 frame.update(frame.getGraphics());
                 TimeUnit.SECONDS.sleep(1);

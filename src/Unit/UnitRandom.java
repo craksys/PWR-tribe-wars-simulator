@@ -36,9 +36,6 @@ public class UnitRandom {
         int rnd;
         rnd = random.nextInt(5);
         switch (rnd) {
-            case 0 -> {
-                return "Czlowiek";
-            }
             case 1 -> {
                 return "Elf";
             }

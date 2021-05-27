@@ -6,7 +6,6 @@ import Unit.UnitDetails;
 public class Move {
     Movement movement = new Movement();
     Diplomacy diplomacy = new Diplomacy();
-    SuppliesUpdate suppliesUpdate = new SuppliesUpdate();
 
 
     public void unitMove(BoardContent[][] boardContent, UnitDetails[] unitDetails, int speed) {

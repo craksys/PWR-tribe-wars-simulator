@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 public class WriteToFile {
     public void write() {
 
-        try (PrintWriter writer = new PrintWriter(new File("C:\\Users\\craksys\\Desktop\\Plemiona_Symulacja\\src\\Images\\test.csv"))) {
+        try (PrintWriter writer = new PrintWriter(new File("src/Images/test.csv"))) {
 
             StringBuilder sb = new StringBuilder();
             sb.append("id,");

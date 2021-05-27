@@ -22,7 +22,7 @@ public class Diplomacy {
                war(unitDetails, i, j, boardContent);
             }
             else if (unitDetails[i].type.equals(unitDetails[j].type) && (unitDetails[i].active && unitDetails[j].active)) { //jezeli 2 jednostki tej samej rasy 25% na polaczenie sie, inaczej wojna
-                int rnd =0;
+                int rnd;
                 rnd = random.nextInt(4);
                 if (rnd == 3) {
                     Stats.allays++;
@@ -52,7 +52,9 @@ public class Diplomacy {
             board_content[(unitDetails[i].xPosition)][(unitDetails[i].yPosition)].occupied = true;//zmienia zajętość pola
             unitDetails[j].xPosition = -1;
             unitDetails[j].yPosition = -1;
-            if(unitDetails[j].quantity<3000){unitDetails[i].stationary=false;}
+            if(unitDetails[j].quantity<3000){
+                unitDetails[i].stationary=false;
+            }
         } else if (unitDetails[i].quantity < unitDetails[j].quantity) {
             unitDetails[j].quantity -= unitDetails[i].quantity;
             unitDetails[i].quantity = 0;
@@ -64,7 +66,9 @@ public class Diplomacy {
             board_content[(unitDetails[j].xPosition)][(unitDetails[j].yPosition)].occupied = true;//zmienia zajętość pola
             unitDetails[i].xPosition = -1;
             unitDetails[i].yPosition = -1;
-            if(unitDetails[j].quantity<3000){unitDetails[j].stationary=false;}
+            if(unitDetails[j].quantity<3000){
+                unitDetails[j].stationary=false;
+            }
         } else if ((unitDetails[i].quantity == unitDetails[j].quantity) && (unitDetails[j].quantity != 0 && unitDetails[i].quantity != 0)) {
             unitDetails[j].quantity = 0;
             unitDetails[j].active = false;
@@ -92,8 +96,6 @@ public class Diplomacy {
             unitDetails[j].yPosition = -1;
             if (unitDetails[i].quantity >= 3000) {
                 unitDetails[i].stationary = true;
-            } else {
-                unitDetails[i].stationary = false;
             }
             Stats.alive--;
             switchResources(unitDetails, i, j);

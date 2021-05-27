@@ -68,10 +68,6 @@ public class MyPanel extends JPanel {
         g2d.drawImage(image, 0, 0, this);
         g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
         g2d.drawString("Statystyki:", 1047, 220);
-        int alive=0;
-        for(int i =0; i<unitDetails.length;i++){
-            if(unitDetails[i].active == true){alive++;}
-        }
         g2d.drawString(String.valueOf(Stats.attacks), 1100, 283);
         g2d.drawString(String.valueOf(Stats.allays), 1100, 335);
         g2d.drawString(String.valueOf(Stats.alive), 1100, 387);
@@ -103,7 +99,7 @@ public class MyPanel extends JPanel {
         }
 
         for(int i=0; i<unitDetails.length; i++){
-            if(unitDetails[i].active == true){
+            if(unitDetails[i].active){
                 g2d.setColor(new Color(0, 0, 0));
                 if(unitDetails[i].quantity< 500){
                     for(int k =0; k<2;k++){
@@ -150,20 +146,6 @@ public class MyPanel extends JPanel {
             }
         }
 
-       // for (int i = 0; i < 1000; i++) {
-           // for (int k = 0; k < 1000; k++) {
-              //  if (boardContent[i][k].occupied) {
-                  //  for (int l = 0; l < 2; l++) {
-                     //   for (int m = 0; m < 2; m++) {
-                      //      g2d.setColor(new Color(0, 0, 0));
-                      //      g2d.drawRect(i + l, k + m, 1, 1);
-                       // }
-
-                   // }
-              //  }
-
-           // }
-        //}
         for (int d = 0; d < 1001; d++) {
             g2d.setColor(new Color(255, 255, 255));
             g2d.drawRect(1001, d, 1, 1);

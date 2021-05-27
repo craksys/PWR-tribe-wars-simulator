@@ -21,8 +21,6 @@ public class SuppliesUpdate {
                     unitDetails[i].quantity+=3;
                     if(unitDetails[i].quantity >= 3000){
                         unitDetails[i].stationary = true;
-                    }else {
-                        unitDetails[i].stationary = false;
                     }
                     unitDetails[i].wood--;
                     unitDetails[i].stone--;
