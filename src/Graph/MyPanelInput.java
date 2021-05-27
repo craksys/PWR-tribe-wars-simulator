@@ -29,6 +29,8 @@ public class MyPanelInput extends JPanel {
         g2d.drawString("Ilość Kamienia", 10, 270);
         g.setFont(new Font("TimesRoman", Font.PLAIN, 15));
         g2d.drawString("Ilość Żelaza", 10, 310);
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 15));
+        g2d.drawString("Odświerzanie", 10, 350);
 
     }
 }

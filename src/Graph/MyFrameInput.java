@@ -15,7 +15,8 @@ public class MyFrameInput extends JFrame implements ActionListener {
     JTextField textiron;
     JTextField textfood;
     JTextField textstone;
-    public int rounds,quantity,speed;
+    JTextField textrefresh;
+    public int rounds,quantity,speed,refresh;
     public int food,wood,stone,iron;
     private final JButton button1;
     public boolean buttonclicked;
@@ -39,9 +40,11 @@ public class MyFrameInput extends JFrame implements ActionListener {
         textstone.setBounds(150,250,150,30);
         textiron = new JTextField(10);
         textiron.setBounds(150,290,150,30);
+        textrefresh = new JTextField(10);
+        textrefresh.setBounds(150,330,150,30);
         //textField.setFont(textField.getFont().deriveFont(25f));
         button1 = new JButton("ok");
-        button1.setBounds(172,360,56,30);
+        button1.setBounds(172,390,56,30);
         panel.setLayout(null);
         button1.addActionListener(this);
         panel.add(textField);
@@ -52,6 +55,7 @@ public class MyFrameInput extends JFrame implements ActionListener {
         panel.add(textstone);
         panel.add(textiron);
         panel.add(button1);
+        panel.add(textrefresh);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         add(panel);
@@ -73,6 +77,7 @@ public class MyFrameInput extends JFrame implements ActionListener {
             wood = parseInt(textwood.getText());
             stone = parseInt(textstone.getText());
             iron = parseInt(textiron.getText());
+            refresh = parseInt(textrefresh.getText());
             buttonclicked=true;
             win.dispose();
         }
