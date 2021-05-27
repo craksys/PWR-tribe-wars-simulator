@@ -18,7 +18,7 @@ public class SuppliesUpdate {
                     Stats.alive--;
                     Stats.hungerdead++;
                 } else {
-                    unitDetails[i].quantity+=15;
+                    unitDetails[i].quantity+=3;
                     if(unitDetails[i].quantity >= 3000){
                         unitDetails[i].stationary = true;
                     }else {

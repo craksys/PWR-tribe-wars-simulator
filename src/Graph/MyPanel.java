@@ -105,14 +105,14 @@ public class MyPanel extends JPanel {
         for(int i=0; i<unitDetails.length; i++){
             if(unitDetails[i].active == true){
                 g2d.setColor(new Color(0, 0, 0));
-                if(unitDetails[i].quantity<= 1000){
+                if(unitDetails[i].quantity< 500){
                     for(int k =0; k<2;k++){
                         for(int l =0; l<2;l++){
                             g2d.setColor(new Color(0, 0, 0));
                             g2d.drawRect(unitDetails[i].xPosition+k , unitDetails[i].yPosition+l, 1, 1);
                         }
                     }
-                }else if(unitDetails[i].quantity<= 3000 && unitDetails[i].quantity>1000){
+                }else if(unitDetails[i].quantity>=500 && unitDetails[i].quantity<1000){
                     for(int k =0; k<3;k++){
                         for(int l =0; l<3;l++){
                             g2d.setColor(new Color(0, 0, 0));
@@ -120,7 +120,7 @@ public class MyPanel extends JPanel {
                         }
                     }
                 }
-                else if(unitDetails[i].quantity<= 6000 && unitDetails[i].quantity>3000){
+                else if(unitDetails[i].quantity>= 1000 && unitDetails[i].quantity<2000){
                     for(int k =0; k<4;k++){
                         for(int l =0; l<4;l++){
                             g2d.setColor(new Color(0, 0, 255));
@@ -128,7 +128,7 @@ public class MyPanel extends JPanel {
                         }
                     }
                 }
-                else if(unitDetails[i].quantity<= 10000&& unitDetails[i].quantity>6000){
+                else if(unitDetails[i].quantity>= 2000 && unitDetails[i].quantity<3000){
                     for(int k =0; k<5;k++){
                         for(int l =0; l<5;l++){
                             g2d.setColor(new Color(138, 43, 226));
@@ -136,7 +136,7 @@ public class MyPanel extends JPanel {
                         }
                     }
                 }
-                else if(unitDetails[i].quantity<= 15000 && unitDetails[i].quantity>10000){
+                else if(unitDetails[i].quantity>=3000){
                     for(int k =0; k<6;k++){
                         for(int l =0; l<6;l++){
                             g2d.setColor(new Color(255, 0, 0));

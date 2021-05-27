@@ -13,7 +13,7 @@ public class UnitRandom {
         unitDetails[i].stone = random.nextInt(51) + 30; // procentwo ilość kamienia
         unitDetails[i].iron = random.nextInt(51) + 30; // procentowo ilość żelaza
         unitDetails[i].wood = random.nextInt(51) + 30; // procentowo ilosc drewna
-        unitDetails[i].quantity = random.nextInt(910) + 100; // liczebność grupy
+        unitDetails[i].quantity = random.nextInt(710) + 200; // liczebność grupy
         unitDetails[i].active = true;
 
         if (unitDetails[i].quantity >= 3000) {
