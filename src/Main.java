@@ -39,6 +39,7 @@ public class Main {
         Move move = new Move();
         SuppliesUpdate suppliesUpdate = new SuppliesUpdate();
         MyFrame frame = new MyFrame(boardContent,unitDetails);
+        WriteToFile writeToFile = new WriteToFile();
 
         TimeUnit.SECONDS.sleep(3);
 
@@ -49,10 +50,12 @@ public class Main {
             if(i%10 == 0 && i!=0){
                 frame.update(frame.getGraphics());
                 TimeUnit.SECONDS.sleep(1);
+                writeToFile.createAndWrite();
             }
             Stats.rounds++;
         }
         frame.update(frame.getGraphics());
+        writeToFile.createAndWrite();
 
         int help=0;
         for(int z=0;z<unitDetails.length;z++)
@@ -64,8 +67,7 @@ public class Main {
         System.out.println("Tyle interakcji: " + Stats.test);
         System.out.println("Tyle walk z remisem: " + Stats.test2);
         System.out.println("Tyle umarło z głodu: "+Stats.hungerdead);
-        WriteToFile writeToFile = new WriteToFile();
-        writeToFile.write();
+
 
 
     }
