@@ -39,7 +39,7 @@ public class Main {
         SuppliesUpdate suppliesUpdate = new SuppliesUpdate();
         MyFrame frame = new MyFrame(boardContent,unitDetails); // wygenerowanie mapy na GUI
         WriteToFile writeToFile = new WriteToFile();
-        File file = new File("src/Images/Dane.csv");
+        File file = new File("src/Resources/Dane.csv");
         file.delete(); // usuniecie wczesniejszych danych
 
         TimeUnit.SECONDS.sleep(2);

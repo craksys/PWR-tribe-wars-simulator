@@ -9,7 +9,7 @@ public class WriteToFile {
 
     public void writeDataToFile() throws IOException {
 
-        File file = new File("src/Images/Dane.csv");
+        File file = new File("src/Resources/Dane.csv");
         FileWriter fr = new FileWriter(file, true);
         BufferedWriter br = new BufferedWriter(fr);
         br.write("Runda nr: " + "," + Stats.rounds + '\n');
