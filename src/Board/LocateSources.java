@@ -7,7 +7,7 @@ public class LocateSources {
 
     Random random = new Random();
 
-    public void randSupplies(BoardContent[][] boardContent, int amountOfSupplies, int typeOfSupplies, ArrayList<Integer> xArray, ArrayList<Integer> yArray) {
+    protected void randSupplies(BoardContent[][] boardContent, int amountOfSupplies, int typeOfSupplies, ArrayList<Integer> xArray, ArrayList<Integer> yArray) {
         for (int i = 0; i < amountOfSupplies; i++) {
             int x;
             int y;

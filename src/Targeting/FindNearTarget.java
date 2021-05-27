@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class FindNearTarget {
 
-    public void findTargetAndWriteToTab(UnitDetails[] unitDetails, int i) {
+    protected void findTargetAndWriteToTab(UnitDetails[] unitDetails, int i) {
         switch (unitDetails[i].targetType) {
             case 1 -> {
                 unitDetails[i].xTarget = ArrayOfPlaces.xFood.get(returnNumberOfNearestSupplies(ArrayOfPlaces.xFood, ArrayOfPlaces.yFood, unitDetails, i));

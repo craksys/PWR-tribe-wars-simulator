@@ -5,7 +5,7 @@ import Unit.UnitDetails;
 public class SelectTarget {
     FindNearTarget findNearTarget = new FindNearTarget();
 
-    public void selectTarget(UnitDetails[] unitDetails, int i) {
+    protected void selectTarget(UnitDetails[] unitDetails, int i) {
         if (unitDetails[i].targetActive) {
             if (!unitDetails[i].stationary) {
                 if (unitDetails[i].xPosition == unitDetails[i].xTarget && unitDetails[i].yPosition == unitDetails[i].yTarget) {
