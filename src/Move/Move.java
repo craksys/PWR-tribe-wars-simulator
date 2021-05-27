@@ -34,7 +34,6 @@ public class Move {
 
                 } else if (unitDetails[i].active && unitDetails[i].stationary && unitDetails[i].targetActive) {
                     movementScouts.move(unitDetails,i);
-                    //movement.moveToTargetScout(unitDetails, i);
                 }
             }
         }
