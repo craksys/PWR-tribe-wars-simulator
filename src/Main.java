@@ -7,6 +7,8 @@ import Targeting.Target;
 import Unit.Unit;
 import Unit.UnitDetails;
 import Graph.Stats;
+import Write.CSV;
+import Write.Txt;
 import Write.WriteToFile;
 
 import java.io.File;
@@ -41,13 +43,18 @@ public class Main {
         Move move = new Move();
         SuppliesUpdate suppliesUpdate = new SuppliesUpdate();
         MyFrame frame = new MyFrame(boardContent,unitDetails);
-        WriteToFile writeToFile = new WriteToFile();
+        //WriteToFile filetype = new Txt();
+         WriteToFile filetype;
+
+
 
         TimeUnit.SECONDS.sleep(3);
         File file = new File("src/Images/Dane.csv");
+        File file2 = new File("src/Images/Dane.txt");
         file.delete();
+        file2.delete();
+        filetype = fram2.filetype;
 
-        writeToFile.writeDataToFile();
         for (int i = 0; i < fram2.rounds; i++) { //i liczba rund do symulowania
             suppliesUpdate.update(unitDetails, boardContent);
             target.targets(unitDetails);
@@ -55,12 +62,12 @@ public class Main {
             if(i% fram2.refresh == 0 && i!=0){
                 frame.update(frame.getGraphics());
                 TimeUnit.SECONDS.sleep(1);
-                writeToFile.writeDataToFile();
+                filetype.write();
             }
             Stats.rounds++;
         }
         frame.update(frame.getGraphics());
-        writeToFile.writeDataToFile();
+        filetype.write();
     }
 
 }

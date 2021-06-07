@@ -1,5 +1,9 @@
 package Graph;
 
+import Write.CSV;
+import Write.Txt;
+import Write.WriteToFile;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,6 +13,7 @@ import static java.lang.Integer.parseInt;
 
 public class MyFrameInput extends JFrame implements ActionListener {
     JTextField textField;
+    public WriteToFile filetype;
     JTextField textField2;
     JTextField textField3;
     JTextField textwood;
@@ -16,6 +21,7 @@ public class MyFrameInput extends JFrame implements ActionListener {
     JTextField textfood;
     JTextField textstone;
     JTextField textrefresh;
+    JCheckBox checkbox = new JCheckBox("Zapis do pliku txt");
     public int rounds,quantity,speed,refresh;
     public int food,wood,stone,iron;
     private final JButton button1;
@@ -44,6 +50,8 @@ public class MyFrameInput extends JFrame implements ActionListener {
         textrefresh.setBounds(150,330,150,30);
         button1 = new JButton("ok");
         button1.setBounds(172,390,56,30);
+        checkbox.setBounds(10,380,150,40);
+
         panel.setLayout(null);
         button1.addActionListener(this);
         panel.add(textField);
@@ -55,6 +63,7 @@ public class MyFrameInput extends JFrame implements ActionListener {
         panel.add(textiron);
         panel.add(button1);
         panel.add(textrefresh);
+        panel.add(checkbox);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         add(panel);
@@ -79,6 +88,11 @@ public class MyFrameInput extends JFrame implements ActionListener {
             refresh = parseInt(textrefresh.getText());
             buttonclicked=true;
             win.dispose();
+            if(checkbox.isSelected() == true) {
+                filetype = new Txt();
+            }else{
+                filetype = new CSV();
+            }
         }
         else{
             buttonclicked=false;
