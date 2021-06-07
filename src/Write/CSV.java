@@ -8,7 +8,7 @@ public class CSV implements WriteToFile {
 
 
     public void write() throws IOException {
-
+//
         File file = new File("src/Images/Dane.csv");
         FileWriter fr = new FileWriter(file, true);
         BufferedWriter br = new BufferedWriter(fr);

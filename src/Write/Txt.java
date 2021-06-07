@@ -3,7 +3,7 @@ import java.io.FileOutputStream;
 import java.util.Scanner;
 import Graph.Stats;
 import java.io.*;
-public class Txt implements WriteToFile {
+public class Txt implements WriteToFile {//
     public void write()  throws IOException {
         File file = new File("src/Images/Dane.txt");
         FileWriter fr = new FileWriter(file, true);

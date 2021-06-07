@@ -43,7 +43,6 @@ public class Main {
         Move move = new Move();
         SuppliesUpdate suppliesUpdate = new SuppliesUpdate();
         MyFrame frame = new MyFrame(boardContent,unitDetails);
-        //WriteToFile filetype = new Txt();
          WriteToFile filetype;
 
 
