@@ -28,32 +28,32 @@ public class MyPanel extends JPanel {
         this.unitDetails = unitDetails;
         setPreferredSize(new Dimension(1200, 1000));
         try {
-            image = ImageIO.read(new File("src/Images/PLKO.png"));
+            image = ImageIO.read(new File("src/Resources/PLKO.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
         try {
-            image2 = ImageIO.read(new File("src/Images/sword.png"));
+            image2 = ImageIO.read(new File("src/Resources/sword.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
         try {
-            image3 = ImageIO.read(new File("src/Images/allay.png"));
+            image3 = ImageIO.read(new File("src/Resources/allay.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
         try {
-            image4 = ImageIO.read(new File("src/Images/hearth.png"));
+            image4 = ImageIO.read(new File("src/Resources/hearth.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
         try {
-            image5 = ImageIO.read(new File("src/Images/death.png"));
+            image5 = ImageIO.read(new File("src/Resources/death.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
         try {
-            image6 = ImageIO.read(new File("src/Images/time.png"));
+            image6 = ImageIO.read(new File("src/Resources/time.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
