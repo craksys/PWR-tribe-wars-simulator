@@ -48,8 +48,8 @@ public class Main {
 
 
         TimeUnit.SECONDS.sleep(3);
-        File file = new File("src/Images/Dane.csv");
-        File file2 = new File("src/Images/Dane.txt");
+        File file = new File("src/Resources/Dane.csv");
+        File file2 = new File("src/Resources/Dane.txt");
         file.delete();
         file2.delete();
         filetype = fram2.filetype;
