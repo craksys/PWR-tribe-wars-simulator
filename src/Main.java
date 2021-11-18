@@ -59,13 +59,15 @@ public class Main {
             target.targets(unitDetails);
             move.unitMove(boardContent, unitDetails, fram2.speed);
             if(i% fram2.refresh == 0 && i!=0){
-                frame.update(frame.getGraphics());
+                frame.repaint();
+                //frame.update(frame.getGraphics());
                 TimeUnit.SECONDS.sleep(1);
                 filetype.write();
             }
             Stats.rounds++;
         }
-        frame.update(frame.getGraphics());
+        //frame.update(frame.getGraphics());
+        frame.repaint();
         filetype.write();
     }
 

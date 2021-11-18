@@ -16,6 +16,7 @@ public class MyFrame extends JFrame {
         add(panel);
         pack();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
         setVisible(true);
     }
 }
